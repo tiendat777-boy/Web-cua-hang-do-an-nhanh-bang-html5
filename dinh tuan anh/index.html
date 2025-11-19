@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>FastBite - Cửa hàng đồ ăn nhanh</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#fff7ed;
+      --primary:#ff6b35;
+      --accent:#ffb66b;
+      --card:#ffffff;
+      --text:#333;
+      --muted:#6b6b6b;
+      --shadow: 0 6px 18px rgba(0,0,0,0.08);
+      --radius:12px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter, system-ui, Arial, sans-serif;
+      background:linear-gradient(180deg,var(--bg),#fff);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+    }
+
+    /* Container */
+    .container{
+      max-width:1100px;
+      margin:0 auto;
+      padding:24px;
+    }
+
+    /* Header / Nav */
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      margin-bottom:18px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      text-decoration:none;
+      color:var(--text);
+    }
+    .logo{
+      width:54px;height:54px;border-radius:12px;background:var(--primary);
+      display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;
+      box-shadow:var(--shadow);
+      font-size:20px;
+    }
+    nav{display:flex;gap:12px;align-items:center}
+    nav a{
+      text-decoration:none;color:var(--muted);padding:8px 12px;border-radius:8px;font-weight:600;
+    }
+    nav a.cta{
+      background:var(--primary);color:#fff;
+      box-shadow:var(--shadow);
+    }
+
+    /* Hero */
+    .hero{
+      display:grid;
+      grid-template-columns:1fr 380px;
+      gap:20px;
+      align-items:center;
+      margin-bottom:28px;
+    }
+    .hero-card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.9), #fff);
+      padding:28px;border-radius:16px;box-shadow:var(--shadow);
+    }
+    .hero h1{margin:0 0 10px 0;font-size:28px}
+    .hero p{margin:0 0 18px 0;color:var(--muted)}
+    .order-btn{
+      display:inline-block;padding:12px 18px;border-radius:10px;background:var(--primary);color:#fff;
+      text-decoration:none;font-weight:700;
+    }
+    .hero-illustration{
+      width:100%;height:260px;border-radius:16px;background:
+        url('https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=800&q=60') center/cover no-repeat;
+      box-shadow:var(--shadow);
+    }
+
+    /* Menu */
+    .section-title{display:flex;justify-content:space-between;align-items:end;margin:18px 0}
+    .menu-grid{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:14px;
+    }
+    .card{
+      background:var(--card);border-radius:12px;padding:12px;box-shadow:var(--shadow);
+      display:flex;flex-direction:column;gap:12px;
+    }
+    .card img{width:100%;height:160px;object-fit:cover;border-radius:10px}
+    .card h3{margin:0;font-size:16px}
+    .card .desc{color:var(--muted);font-size:14px;margin-top:4px}
+    .card .meta{display:flex;justify-content:space-between;align-items:center;margin-top:auto}
+    .price{font-weight:700;color:var(--primary)}
+    .add-btn{padding:8px 12px;background:var(--accent);border-radius:10px;text-decoration:none;font-weight:700;color:#fff}
+
+    /* Contact / Order form */
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .contact{
+      background:linear-gradient(180deg,#fff,#fff9f2);padding:16px;border-radius:12px;box-shadow:var(--shadow);
+    }
+    label{display:block;font-size:13px;margin-bottom:6px;color:var(--muted)}
+    input,textarea,select{
+      width:100%;padding:10px;border-radius:8px;border:1px solid #eee;font-size:14px;
+    }
+    textarea{min-height:100px;resize:vertical}
+    .submit{display:inline-block;padding:10px 14px;border-radius:10px;background:var(--primary);color:#fff;text-decoration:none;border:none;font-weight:700;cursor:pointer}
+
+    footer{margin-top:28px;padding:18px 0;color:var(--muted);font-size:14px;text-align:center}
+
+    /* Responsive */
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr}
+      .menu-grid{grid-template-columns:repeat(2, 1fr)}
+      .grid-2{grid-template-columns:1fr}
+    }
+    @media (max-width:540px){
+      .menu-grid{grid-template-columns:1fr}
+      header{flex-direction:column;align-items:flex-start;gap:12px}
+      .logo{width:48px;height:48px;font-size:18px}
+      .hero-illustration{height:180px}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <a class="brand" href="#">
+        <div class="logo">FB</div>
+        <div>
+          <div style="font-weight:700">FastBite</div>
+          <div style="font-size:12px;color:var(--muted)">Đồ ăn nhanh ngon, giao nhanh</div>
+        </div>
+      </a>
+
+      <nav>
+        <a href="#menu">Menu</a>
+        <a href="#order">Đặt hàng</a>
+        <a href="#contact">Liên hệ</a>
+        <a class="cta" href="#menu">Xem thực đơn</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="hero-card">
+        <h1>Đồ ăn nhanh. Nóng. Ngon. Giao ngay.</h1>
+        <p>Combo burger, khoai tây chiên và nước ngọt — chuẩn vị, giao tận tay. Khuyến mãi mỗi ngày.</p>
+        <a class="order-btn" href="#menu">Đặt ngay</a>
+        <div style="margin-top:16px;color:var(--muted);font-size:13px">
+          <strong>Giờ mở:</strong> 09:00 — 22:00 · <strong>Giao hàng:</strong> trong bán kính 5 km
+        </div>
+      </div>
+
+      <div>
+        <div class="hero-illustration" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <section id="menu">
+      <div class="section-title">
+        <h2>Thực đơn nổi bật</h2>
+        <div style="color:var(--muted);font-size:14px">Tất cả món đều có thể thêm hoặc bớt topping</div>
+      </div>
+
+      <div class="menu-grid">
+        <article class="card">
+          <img src="tải xuống (6).jpg" alt="Burger">
+          <h3>Burger bò đặc biệt</h3>
+          <div class="desc">Bánh mì mềm, patty bò, phô mai, sốt đặc trưng</div>
+          <div class="meta">
+            <div class="price">₫79.000</div>
+            <a class="add-btn" href="#order">Thêm</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=800&q=60" alt="Fries">
+          <h3>Khoai tây chiên</h3>
+          <div class="desc">Giòn rụm, có thể thêm phô mai hoặc sốt BBQ</div>
+          <div class="meta">
+            <div class="price">₫29.000</div>
+            <a class="add-btn" href="#order">Thêm</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="tải xuống.jpg" alt="Chicken">
+          <h3>Gà rán cay</h3>
+          <div class="desc">Miếng gà tẩm ướp, chiên giòn, cay vừa ăn</div>
+          <div class="meta">
+            <div class="price">₫69.000</div>
+            <a class="add-btn" href="#order">Thêm</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="tải xuống (1).jpg" alt="Pizza">
+          <h3>Pizza mini</h3>
+          <div class="desc">Cỡ mini, phô mai kéo sợi, nhiều topping</div>
+          <div class="meta">
+            <div class="price">₫89.000</div>
+            <a class="add-btn" href="#order">Thêm</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=60" alt="Wrap">
+          <h3>Wrap gà</h3>
+          <div class="desc">Rau tươi, gà nướng, sốt kem</div>
+          <div class="meta">
+            <div class="price">₫59.000</div>
+            <a class="add-btn" href="#order">Thêm</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="tải xuống (2).jpg" alt="Drink">
+          <h3>Nước ngọt / Đá xay</h3>
+          <div class="desc">Lựa chọn: cola, trà đào, cacao đá xay</div>
+          <div class="meta">
+            <div class="price">₫25.000</div>
+            <a class="add-btn" href="#order">Thêm</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="order" style="margin-top:24px;">
+      <div class="section-title">
+        <h2>Đặt hàng / Liên hệ</h2>
+        <div style="color:var(--muted);font-size:14px">Gửi đơn hoặc nhắn tin trực tiếp cho cửa hàng</div>
+      </div>
+
+      <div class="grid-2">
+        <div class="contact">
+          <form onsubmit="event.preventDefault(); alert('Cảm ơn! Chúng tôi đã nhận đơn của bạn (demo).');">
+            <label for="name">Họ tên</label>
+            <input id="name" type="text" placeholder="Nguyễn Văn A" required>
+
+            <label for="phone" style="margin-top:10px">Số điện thoại</label>
+            <input id="phone" type="tel" placeholder="0912xxxxxx" required>
+
+            <label for="address" style="margin-top:10px">Địa chỉ giao</label>
+            <input id="address" type="text" placeholder="Số nhà, đường, quận, thành phố" required>
+
+            <label for="note" style="margin-top:10px">Ghi chú / Món</label>
+            <textarea id="note" placeholder="Ví dụ: 1 Burger, ít hành, kèm khoai"></textarea>
+
+            <div style="margin-top:12px">
+              <button class="submit" type="submit">Gửi đơn</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="contact">
+          <h3 style="margin-top:0">Thông tin cửa hàng</h3>
+          <p style="color:var(--muted)">FastBite - Cửa hàng đồ ăn nhanh</p>
+          <p><strong>Địa chỉ:</strong> E03 manboi-Ba La-Phú Lãm-Hà Đông</p>
+          <p><strong>Hotline:</strong> 0364544822</p>
+          <p><strong>Giờ mở cửa:</strong> 8:00-23:00</p>
+
+          <hr style="margin:12px 0;border:none;border-top:1px solid #f0e6df">
+
+          <h4 style="margin:0 0 8px 0">Mạng xã hội</h4>
+          <p style="margin:0">
+            <a href="#" style="text-decoration:none;color:var(--muted)">Facebook</a> ·
+            <a href="#" style="text-decoration:none;color:var(--muted)">Instagram</a> ·
+            <a href="#" style="text-decoration:none;color:var(--muted)">Zalo</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> FastBite · Thiết kế đơn giản — Dùng demo
+    </footer>
+  </div>
+
+  <script>
+    // cập nhật năm tự động
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
